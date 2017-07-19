@@ -1,7 +1,500 @@
-body {
-  background-color: orange;
+* {
+  box-sizing: border-box;
+  font-family: 'Amatic SC';
+  /* font-size: 20px; */
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+h1, h2, h3, .font {
+  font-family: 'Amatic SC', cursive;
 }
 
 h1 {
-  background-color: blue;
+  font-size: 7em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+   font-size: 2.5em;
+}
+
+body, html {
+  height: 100%;
+}
+
+/**** MENU  ****/
+#header {
+  align-content: stretch;
+  align-items: stretch;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: nowrap; 
+  justify-content: flex-start;
+  margin-bottom: -1.3em;
+  width: 100%;
+}
+.menuContainer {
+  margin-bottom: -1.3rem;
+  width: 100%
+}
+
+.logo {
+  align-self: auto;
+  border: 5px solid black;  
+  flex: 0 1 auto; 
+}
+
+.logo img {
+  border: 1px solid red;
+  display: inline-block; 
+  max-width: 4em;
+  padding: 13px 12px; 
+  text-align: center;  
+}
+
+.menuList {
+  color: black;
+}
+.menu {
+  font-weight: 400;
+  font-size: 4rem;
+  height: 5em;
+  /* left: 50%;  */
+  margin-left: -40em;
+  position: absolute;
+  width: 100%;
+}
+
+.menu > a {
+  display: none;
+}
+
+.menu li {
+  color: #000;
+  position: relative;
+}
+
+.menu li a {
+  color: #000;
+  display: block;
+  text-decoration: none;
+}
+
+.menu li a:active {
+  background-color: #A12325;
+  /* !important; */
+  color: white;
+}
+
+.menu li a:hover:not(.active) {
+  background-color: #A12325;
+  color: white;
+}
+
+.menu span:after {
+  content: '';
+  display: inline-block;
+  height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0;
+  /*    
+  border: 0.313em solid transparent;
+  border-bottom: none;
+  border-top-color: #efa585;
+  right: -0.313em;
+  */
+}
+
+/* first level */
+.menu > ul {
+  height: 3.75em;
+  list-style-type: none;
+}
+
+.menu > ul > li {
+  float: left;
+  height: 100%;
+  width: 25%;
+}
+
+.menu > ul > li > a {
+  color: #000000;
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.8em;
+  /* 24 */
+  font-weight: bold;
+  height: 100%;
+  line-height: 2.5em;
+  /* 60 (24) */
+  text-align: center;
+  text-align: left;
+  /*margin-left: 1.2em;*/
+  padding-left: 1.6em;
+}
+
+.menu > ul > li:not(:last-child) > a {
+  border-right: 1px solid #cc470d;
+}
+
+.menu > ul > li:hover > a,
+.menu > ul:not(:hover) > li.active > a {
+  background-color: #A12325;
+  color: #FFF;
+}
+
+
+/* second level */
+.menu li ul {
+  background-color: #FFF;
+  display: none;
+  position: absolute;
+  list-style-type: none;
+  /*top: 100%;*/
+}
+
+.menu li:hover ul {
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.menu li:not(:first-child):hover ul {
+  left: -1px;
+}
+
+.menu li ul a {
+  font-size: 1.65em;
+  /* border-top: 1px solid #e15a1f; */
+  padding: 0.35em;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+}
+
+/*
+.menu li ul li a:hover, .menu li ul:not( :hover ) li.active a 
+{
+    background-color: yellow;
+}
+*/
+
+@media only screen and ( max-width: 62.5em)
+/* 1000 */
+
+{
+  .menu {
+    margin: 0;
+    position: static;
+    width: 100%;
+  }
+  
+  
+  .menu > ul > li > a {
+    font-size: 1.6em;
+  }
+}
+
+@media all and (max-width: 810px) {
+  .menu > ul > li > a {
+    font-size: 1.45em;
+  }
+}
+
+@media all and (max-width: 680px) {
+  .menu > ul > li > a {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and ( max-width: 40em)
+  /* 640 */
+
+{
+  /*Menu movil*/
+  /*
+  html {
+  font-size: 75%;
+  }*/
+  .menu {
+    background-color: #A12325;
+    left: auto;
+    position: relative;
+    top: auto;
+  }
+  .menu > a {
+    background-color: #A12325;
+    height: 3.125em;
+    position: relative;
+    text-align: left;
+    text-indent: -9999px;
+    width: 3.125em;
+  }
+  .menu > a:before,
+  .menu > a:after {
+    /*background-color: #A12325;*/
+    border: 2px solid #fff;
+    content: '';
+    left: 25%;
+    position: absolute;
+    right: 25%;
+    top: 35%;
+  }
+  .menu > a:after {
+    top: 60%;
+  }
+  .menu:not(:target) > a:first-of-type,
+  .menu:target > a:last-of-type {
+    display: block;
+  }
+  /* first level */
+  .menu > ul {
+    display: none;
+    height: auto;
+    left: 0;
+    /*position: absolute;*/
+    right: 0;
+  }
+  .menu:target > ul {
+    display: block;
+  }
+  .menu > ul > li {
+    width: 100%;
+    float: none;
+  }
+  .menu > ul > li > a {
+    height: auto;
+    text-align: left;
+    padding: 0 0.833em;
+    background-color: #A12325;
+    /* 20 (24) */
+  }
+  .menu > ul > li:not(:last-child) > a {
+    border-right: none;
+    border-bottom: 1px solid #cc470d;
+  }
+  /* second level */
+  .menu li ul {
+    position: static;
+    padding: 1.25em;
+    /* 20 */
+    padding-top: 0;
+    background-color: #901F21;
+  }
+  #logo {
+    display: none;
+  }
+  #logo img {
+    display: none;
+  }
+}
+
+/**** CONTENIDO ****/
+.content {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    line-height: 1.4em;
+}
+
+.contenidoDosColumnas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: center;
+    height: 400px;
+    margin: 4em;
+}
+
+.columna1 {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: auto;
+    margin: 3em;
+}
+
+.columna2 {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: auto;
+    margin: 3em;
+}
+
+/***** Pagina Home - (index.html)*******/
+
+.bienvenida {
+    /*    margin-top: 5em;*/
+    text-align: center;
+    /*    color: #A12325;*/
+    color: #fff;
+    padding-top: 10em;
+}
+
+.parallaxIndexInicio {
+    /* The image used */
+    /*    background-image: */
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imagenes/fondo.jpg');
+    /* Full height */
+    height: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.introduccion {
+    height: 100vh;
+    /* background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(161, 35, 37, 0.5)); */
+    background: #f8f8f8;
+    font-size: 25px;
+    text-align: center;
+    padding: 10rem 8rem;
+}
+.home_letter{
+    font-size: 1.3em;
+    padding: 4rem;
+}
+
+.homeIntroduction{
+    display: flex;
+    flex-direction: row;
+    /*flex-wrap: nowrap;*/
+    justify-content: space-around;
+    align-content: stretch;
+    align-items: stretch;
+}
+
+.homeParagraphs{
+    order: 0;
+    flex: 2 1 auto;
+    align-self: auto;
+}
+
+.homeImage{
+   flex: 1 1 auto;
+   width: 100%;
+
+}
+
+.parallaxIndexCentro {
+    /* The image used */
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../imagenes/IMG_0818.jpg");
+    /* Full height */
+    height: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.imagen1 {
+    order: 1;
+    flex: 0 1 auto;
+    align-self: center;
+}
+
+.imeagen2 {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: center;
+}
+
+.contenedorImagenes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+}
+
+img {
+    max-width: 100%
+}
+
+;
+
+/*Pagina PinaConfitada - (index.html)*/
+
+.parallaxPinaConfitadaInicio {
+    /* The image used */
+    background-image: url("imagenes/piñaConfitadaEmpaque.jpg");
+    /* Full height */
+    height: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallaxPinaConfitadaCentro {
+    /* The image used */
+    background-image: url("imagnes/piñaConfitada.jpg");
+    /* Full height */
+    height: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Small devices */
+
+@media all and (max-width: 768px) {
+    #logo {
+        display: none;
+    }
+    .menuigation {
+        margin: 0;
+    }
+    #content {
+        padding: 0.5em;
+    }
+    #footer {
+        padding: 0.5em 0;
+    }
+    #footer div.content {
+        flex-direction: column;
+    }
+    ul.sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    ul.sidenav li a {
+        float: left;
+        padding: 15px;
+    }
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    ul.sidenav li a {
+        text-align: center;
+        float: none;
+    }
+}
+
+
+/* Turn off parallax scrolling for tablets and phones. Increase/decrease the pixels if needed */
+
+@media only screen and (max-device-width: 1024px) {
+    .parallax {
+        background-attachment: scroll;
+    }
 }
